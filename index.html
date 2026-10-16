@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="ps" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#087f5b">
+<title>افغان مارکېټ | د پېر او پلور بازار</title>
+
+<style>
+:root {
+  --green: #087f5b;
+  --dark: #07513d;
+  --light: #e8f7ef;
+  --gold: #f5b82e;
+  --text: #17352b;
+  --muted: #65766e;
+  --border: #dce8e1;
+  --bg: #f4f8f5;
+  --danger: #b42318;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Tahoma, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+header {
+  color: white;
+  padding: 25px 16px;
+  background: linear-gradient(135deg, #064e3b, #087f5b, #16a36f);
+}
+
+.top {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  background: white;
+  color: var(--green);
+  font-size: 29px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: clamp(22px, 4vw, 32px);
+}
+
+.brand p {
+  margin: 0;
+  color: #d8f5e6;
+  font-size: 13px;
+}
+
+.tag {
+  padding: 5px 12px;
+  border: 1px solid #ffffff70;
+  border-radius: 30px;
+  font-size: 12px;
+}
+
+.hero {
+  max-width: 1100px;
+  margin: 25px auto 0;
+}
+
+.hero h2 {
+  font-size: clamp(24px, 5vw, 36px);
+  margin: 0 0 5px;
+}
+
+.hero p {
+  margin: 0;
+  color: #e1f6e9;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 0 13px;
+}
+
+.notice {
+  padding: 13px;
+  border: 1px solid #f2dfa0;
+  border-radius: 13px;
+  background: #fff8df;
+  color: #68551b;
+  margin-bottom: 17px;
+  font-size: 13px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.3fr;
+  gap: 17px;
+  align-items: start;
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 18px;
+  margin-bottom: 17px;
+  box-shadow: 0 5px 20px #123b260c;
+  min-width: 0;
+}
+
+.card h2 {
+  font-size: 20px;
+  margin: 0 0 14px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 12px 0 5px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #cfddd5;
+  border-radius: 10px;
+  background: white;
+  color: var(--text);
+  outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px #087f5b18;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.primary {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: 0;
+  border-radius: 11px;
+  background: var(--green);
+  color: white;
+  font-weight: bold;
+}
+
+.primary:hover {
+  background: var(--dark);
+}
+
+.secondary {
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: white;
+  color: var(--text);
+}
+
+.filebox {
+  border: 1px dashed #a9cabb;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  background: #f7fcf8;
+  color: var(--muted);
+}
+
+.filebox input {
+  border: 0;
+  padding: 8px 0;
+  background: transparent;
+}
+
+.preview {
+  display: none;
+  max-width: 100%;
+  max-height: 220px;
+  margin: 10px auto 0;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.small {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.list-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.count {
+  background: var(--light);
+  color: var(--dark);
+  padding: 4px 9px;
+  border-radius: 30px;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+  margin-bottom: 10px;
+}
+
+.filters .full {
+  grid-column: 1 / -1;
+}
+
+.favorite-filter {
+  width: 100%;
+  margin: 0 0 13px;
+  padding: 9px;
+  border: 1px solid #f4d7df;
+  border-radius: 10px;
+  background: #fff5f7;
+  color: #a61b45;
+}
+
+.favorite-filter.active {
+  background: #ffe4eb;
+  font-weight: bold;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.item {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: white;
+}
+
+.item-photo {
+  width: 100%;
+  height: 155px;
+  display: block;
+  object-fit: cover;
+  background: #edf5ef;
+}
+
+.photo-placeholder {
+  height: 155px;
+  display: grid;
+  place-items: center;
+  font-size: 42px;
+  background: linear-gradient(135deg, #e6f6ed, #f8fbf8);
+}
+
+.item-body {
+  padding: 12px;
+}
+
+.category {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 30px;
+  background: var(--light);
+  color: var(--green);
+  font-size: 11px;
+}
+
+.item h3 {
+  margin: 8px 0 3px;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.price {
+  color: var(--green);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+
+.description {
+  font-size: 13px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.actions button, .actions a {
+  flex: 1;
+  min-width: 65px;
+  text-align: center;
+  text-decoration: none;
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 5px;
+  font-size: 12px;
+}
+
+.contact {
+  background: var(--green);
+  color: white;
+}
+
+.fav {
+  background: #fff1f5;
+  color: #a61b45;
+}
+
+.delete {
+  background: #fff0ef;
+  color: var(--danger);
+}
+
+.empty {
+  padding: 30px 10px;
+  text-align: center;
+  color: var(--muted);
+  border: 1px dashed #cadbd1;
+  border-radius: 13px;
+}
+
+.footer {
+  padding: 20px 10px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 430px) {
+  .tag {
+    display: none;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+  .filters .full {
+    grid-column: auto;
+  }
+
+  .item-photo, .photo-placeholder {
+    height: 190px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="top">
+    <div class="brand">
+      <div class="logo">🛍️</div>
+      <div>
+        <h1>🇦🇫 افغان مارکېټ</h1>
+        <p>د افغانستان د پېر او پلور بازار</p>
+      </div>
+    </div>
+    <span class="tag">ساده • چټک • په پښتو</span>
+  </div>
+
+  <div class="hero">
+    <h2>هغه څه پیدا کړه چې ورته اړتیا لرې</h2>
+    <p>خپل توکي اعلان کړه، بیه یې ولیکه او له پېرودونکو سره اړیکه ونیسه.</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="notice">
+    🇦🇫 <strong>افغان مارکېټ</strong><br>
+    خپل اعلانونه ثبت، لټون او له خوښو سره اضافه کړه.
+    <br>
+    <strong>یادونه:</strong>
+    اعلانونه په همدې براوزر کې ساتل کېږي؛ دا نسخه لا د ټولو خلکو ګډ آنلاین ډیټابېس نه لري.
+  </div>
+
+  <div class="layout">
+
+    <!-- د اعلان ثبتولو برخه -->
+    <section class="card">
+      <h2>✍️ خپل شی اعلان کړه</h2>
+
+      <form id="listingForm">
+
+        <label for="title">د شي نوم *</label>
+        <input id="title" maxlength="90" required
+               placeholder="لکه: د پښتو کتاب">
+
+        <label for="category">د شي ډول *</label>
+        <select id="category">
+          <option>کتابونه او قرطاسیه</option>
+          <option>موبایلونه</option>
+          <option>کمپیوټرونه</option>
+          <option>برقي وسایل</option>
+          <option>جامې او بوټان</option>
+          <option>کورني توکي</option>
+          <option>موټر او پرزې</option>
+          <option>کرنیز توکي</option>
+          <option>حیوانات</option>
+          <option>ځمکې او کورونه</option>
+          <option>نور شیان</option>
+        </select>
+
+        <div class="two">
+          <div>
+            <label for="price">بیه (افغانۍ) *</label>
+            <input id="price" type="number" min="0"
+                   step="any" required placeholder="500">
+          </div>
+
+          <div>
+            <label for="province">ولایت *</label>
+            <select id="province" required>
+              <option value="">ولایت وټاکه</option>
+              <option>کابل</option>
+              <option>کندهار</option>
+              <option>هرات</option>
+              <option>بلخ</option>
+              <option>ننګرهار</option>
+              <option>ارزګان</option>
+              <option>غزني</option>
+              <option>پکتیا</option>
+              <option>پکتیکا</option>
+              <option>خوست</option>
+              <option>لوګر</option>
+              <option>وردګ</option>
+              <option>بامیان</option>
+              <option>دایکندي</option>
+              <option>زابل</option>
+              <option>هلمند</option>
+              <option>فراه</option>
+              <option>نیمروز</option>
+              <option>بادغیس</option>
+              <option>فاریاب</option>
+              <option>جوزجان</option>
+              <option>سرپل</option>
+              <option>سمنګان</option>
+              <option>کندز</option>
+              <option>تخار</option>
+              <option>بدخشان</option>
+              <option>بغلان</option>
+              <option>پروان</option>
+              <option>کاپیسا</option>
+              <option>پنجشیر</option>
+              <option>لغمان</option>
+              <option>کنړ</option>
+              <option>نورستان</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="city">ښار یا ولسوالي</label>
+        <input id="city" maxlength="80"
+               placeholder="لکه: ترینکوټ، مرکز">
+
+        <label for="phone">د اړیکې شمېره</label>
+        <input id="phone" type="tel" maxlength="30"
+               placeholder="د موبایل شمېره">
+
+        <label for="description">نور معلومات</label>
+        <textarea id="description" rows="3" maxlength="700"
+                  placeholder="د شي حالت، اندازه او نور معلومات"></textarea>
+
+        <label for="photo">د شي عکس</label>
+        <div class="filebox">
+          📷 له ګالري څخه عکس وټاکه
+          <input id="photo" type="file" accept="image/*">
+          <img id="preview" class="preview" alt="د عکس مخکتنه">
+        </div>
+
+        <button class="primary" type="submit">＋ اعلان ثبت کړه</button>
+
+        <p class="small">
+          * د شي نوم، بیه او ولایت اړین دي.
+        </p>
+      </form>
+    </section>
+
+    <!-- د اعلانونو برخه -->
+    <section class="card">
+
+      <div class="list-head">
+        <h2>🛒 اعلانونه</h2>
+        <span id="count" class="count">۰ اعلانونه</span>
+      </div>
+
+      <div class="filters">
+        <input id="search" type="search"
+               placeholder="🔎 نوم، ښار یا اعلان ولټوه">
+
+        <select id="filter">
+          <option value="">ټول ډولونه</option>
+          <option>کتابونه او قرطاسیه</option>
+          <option>موبایلونه</option>
+          <option>کمپیوټرونه</option>
+          <option>برقي وسایل</option>
+          <option>جامې او بوټان</option>
+          <option>کورني توکي</option>
+          <option>موټر او پرزې</option>
+          <option>کرنیز توکي</option>
+          <option>حیوانات</option>
+          <option>ځمکې او کورونه</option>
+          <option>نور شیان</option>
+        </select>
+
+        <select id="provinceFilter" class="full">
+          <option value="">د ټولو ولایتونو اعلانونه</option>
+          <option>کابل</option>
+          <option>کندهار</option>
+          <option>هرات</option>
+          <option>بلخ</option>
+          <option>ننګرهار</option>
+          <option>ارزګان</option>
+          <option>غزني</option>
+          <option>پکتیا</option>
+          <option>پکتیکا</option>
+          <option>خوست</option>
+          <option>لوګر</option>
+          <option>وردګ</option>
+          <option>بامیان</option>
+          <option>دایکندي</option>
+          <option>زابل</option>
+          <option>هلمند</option>
+          <option>فراه</option>
+          <option>نیمروز</option>
+          <option>بادغیس</option>
+          <option>فاریاب</option>
+          <option>جوزجان</option>
+          <option>سرپل</option>
+          <option>سمنګان</option>
+          <option>کندز</option>
+          <option>تخار</option>
+          <option>بدخشان</option>
+          <option>بغلان</option>
+          <option>پروان</option>
+          <option>کاپیسا</option>
+          <option>پنجشیر</option>
+          <option>لغمان</option>
+          <option>کنړ</option>
+          <option>نورستان</option>
+        </select>
+
+        <select id="sort" class="full">
+          <option value="new">نوي اعلانونه لومړی</option>
+          <option value="low">ارزانه بیه لومړی</option>
+          <option value="high">لوړه بیه لومړی</option>
+        </select>
+      </div>
+
+      <button id="favoritesOnly" class="favorite-filter" type="button">
+        ♡ یوازې خوښې اعلانونه
+      </button>
+
+      <div id="listings"></div>
+
+      <button id="clearBtn" class="secondary"
+              type="button" style="width:100%;margin-top:15px">
+        په دې براوزر کې ټول اعلانونه پاک کړه
+      </button>
+
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  افغان مارکېټ 🇦🇫 — د افغانستان د پېر او پلور بازار
+</footer>
+
+<script>
+'use strict';
+
+(function () {
+
+  const STORAGE_KEY = 'afghan_market_listings_v3';
+  const FAVORITES_KEY = 'afghan_market_favorites_v3';
+
+  const $ = id => document.getElementById(id);
+
+  let listings = readStorage(STORAGE_KEY, []);
+  let favorites = readStorage(FAVORITES_KEY, []);
+  let photoData = '';
+
+  function readStorage(key, fallback) {
+    try {
+      const value = JSON.parse(localStorage.getItem(key));
+      return Array.isArray(value) ? value : fallback;
+    } catch (error) {
+      return fallback;
+    }
+  }
+
+  function saveStorage() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(listings));
+      localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
+      return true;
+    } catch (error) {
+      alert(
+        'اعلانونه نه شو ساتلای. ښايي د موبایل حافظه ډکه وي. ' +
+        'د عکس اندازه کمه کړه یا ځینې اعلانونه پاک کړه.'
+      );
+      return false;
+    }
+  }
+
+  // د متن خوندي کول
+  function escapeHTML(value) {
+    return String(value ?? '').replace(/[&<>"']/g, function (char) {
+      const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      };
+      return map[char];
+    });
+  }
+
+  function formatPrice(value) {
+    return Number(value).toLocaleString('en-US') + ' افغانۍ';
+  }
+
+  // د عکس مخکتنه او کوچنی کول
+  $('photo').addEventListener('change', async function (event) {
+    const file = event.target.files[0];
+
+    photoData = '';
+    $('preview').style.display = 'none';
+    $('preview').removeAttribute('src');
+
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      alert('مهرباني وکړه د عکس فایل وټاکه.');
+      event.target.value = '';
+      return;
+    }
+
+    try {
+      photoData = await compressImage(file);
+      $('preview').src = photoData;
+      $('preview').style.display = 'block';
+    } catch (error) {
+      alert('عکس ونه لوستل شو. مهرباني وکړه بل عکس وټاکه.');
+    }
+  });
+
+  function compressImage(file) {
+    return new Promise(function (resolve, reject) {
+      const reader = new FileReader();
+
+      reader.onerror = reject;
+
+      reader.onload = function () {
+        const image = new Image();
+
+        image.onerror = reject;
+
+        image.onload = function () {
+          const maxSize = 800;
+          const scale = Math.min(
+            1,
+            maxSize / Math.max(image.width, image.height)
+          );
+
+          const canvas = document.createElement('canvas');
+
+          canvas.width = Math.max(1, Math.round(image.width * scale));
+          canvas.height = Math.max(1, Math.round(image.height * scale));
+
+          const context = canvas.getContext('2d');
+
+          context.drawImage(
+            image,
+            0,
+            0,
+            canvas.width,
+            canvas.height
+          );
+
+          resolve(canvas.toDataURL('image/jpeg', 0.65));
+        };
+
+        image.src = reader.result;
+      };
+
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // د نوي اعلان ثبتول
+  $('listingForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const title = $('title').value.trim();
+    const price = Number($('price').value);
+    const province = $('province').value;
+
+    if (!title || !Number.isFinite(price) || price < 0 || !province) {
+      alert('د شي نوم، سمه بیه او ولایت ولیکه.');
+      return;
+    }
+
+    const item = {
+      id: Date.now().toString(36) +
+          Math.random().toString(36).slice(2, 8),
+      title: title,
+      category: $('category').value,
+      price: price,
+      province: province,
+      city: $('city').value.trim(),
+      phone: $('phone').value.trim(),
+      description: $('description').value.trim(),
+      photo: photoData,
+      created: Date.now()
+    };
+
+    listings.unshift(item);
+
+    if (!saveStorage()) {
+      listings = listings.filter(function (x) {
+        return x.id !== item.id;
+      });
+      renderListings();
+      return;
+    }
+
+    event.target.reset();
+    photoData = '';
+    $('preview').removeAttribute('src');
+    $('preview').style.display = 'none';
+
+    $('favoritesOnly').classList.remove('active');
+    $('favoritesOnly').textContent = '♡ یوازې خوښې اعلانونه';
+
+    renderListings();
+
+    alert(
+      'اعلان په بریالیتوب ثبت شو! ' +
+      'دا اعلان په همدې براوزر کې ساتل شوی دی.'
+    );
+  });
+
+  // د اعلانونو ښودل، لټون او فلټر
+  function renderListings() {
+    const query = $('search').value.trim().toLocaleLowerCase();
+    const category = $('filter').value;
+    const province = $('provinceFilter').value;
+    const sort = $('sort').value;
+    const favoritesOnly = $('favoritesOnly').classList.contains('active');
+
+    let rows = listings.filter(function (item) {
+      const textMatch = !query || [
+        item.title,
+        item.city,
+        item.province,
+        item.description,
+        item.category
+      ].some(function (value) {
+        return String(value || '').toLocaleLowerCase().includes(query);
+      });
+
+      const categoryMatch =
+        !category || item.category === category;
+
+      const provinceMatch =
+        !province || item.province === province;
+
+      const favoriteMatch =
+        !favoritesOnly || favorites.includes(item.id);
+
+      return textMatch && categoryMatch &&
+             provinceMatch && favoriteMatch;
+    });
+
+    if (sort === 'low') {
+      rows.sort((a, b) => a.price - b.price);
+    } else if (sort === 'high') {
+      rows.sort((a, b) => b.price - a.price);
+    } else {
+      rows.sort((a, b) => b.created - a.created);
+    }
+
+    $('count').textContent =
+      rows.length.toLocaleString('en-US') + ' اعلانونه';
+
+    if (rows.length === 0) {
+      $('listings').innerHTML =
+        '<div class="empty">' +
+        '<div style="font-size:38px">🛍️</div>' +
+        '<strong>اعلان پیدا نه شو</strong><br>' +
+        'بل نوم ولټوه یا نوی اعلان ثبت کړه.' +
+        '</div>';
+      return;
+    }
+
+    $('listings').innerHTML =
+      '<div class="cards">' +
+      rows.map(function (item) {
+
+        const isFavorite = favorites.includes(item.id);
+
+        const imageHTML = item.photo
+          ? '<img class="item-photo" src="' +
+            escapeHTML(item.photo) +
+            '" alt="د توکي عکس">'
+          : '<div class="photo-placeholder">🛍️</div>';
+
+        const phoneHTML = item.phone
+          ? '<div class="meta">📞 ' +
+            escapeHTML(item.phone) +
+            '</div>'
+          : '';
+
+        const contactHTML = item.phone
+          ? '<a class="contact" href="tel:' +
+            escapeHTML(item.phone.replace(/[^\d+]/g, '')) +
+            '">اړیکه</a>'
+          : '';
+
+        const descriptionHTML = item.description
+          ? '<p class="description">' +
+            escapeHTML(item.description) +
+            '</p>'
+          : '';
+
+        const date = new Date(item.created).toLocaleDateString();
+
+        return `
+          <article class="item">
+            ${imageHTML}
+
+            <div class="item-body">
+              <span class="category">
+                ${escapeHTML(item.category)}
+              </span>
+
+              <h3>${escapeHTML(item.title)}</h3>
+
+              <div class="price">
+                ${formatPrice(item.price)}
+              </div>
+
+              <div class="meta">
+                📍 ${escapeHTML(item.province)}
+                ${item.city ? '، ' + escapeHTML(item.city) : ''}
+              </div>
+
+              ${phoneHTML}
+              ${descriptionHTML}
+
+              <div class="actions">
+                ${contactHTML}
+
+                <button type="button"
+                        class="fav"
+                        data-fav="${escapeHTML(item.id)}">
+                  ${isFavorite ? '♥ خوښ دی' : '♡ خوښ'}
+                </button>
+
+                <button type="button"
+                        class="delete"
+                        data-delete="${escapeHTML(item.id)}">
+                  پاکول
+                </button>
+              </div>
+
+              <div class="meta">نېټه: ${escapeHTML(date)}</div>
+            </div>
+          </article>
+        `;
+      }).join('') +
+      '</div>';
+  }
+
+  // د خوښو او حذف کولو تڼۍ
+  $('listings').addEventListener('click', function (event) {
+
+    const favoriteButton = event.target.closest('[data-fav]');
+    const deleteButton = event.target.closest('[data-delete]');
+
+    if (favoriteButton) {
+      const id = favoriteButton.dataset.fav;
+
+      if (favorites.includes(id)) {
+        favorites = favorites.filter(function (value) {
+          return value !== id;
+        });
+      } else {
+        favorites.push(id);
+      }
+
+      saveStorage();
+      renderListings();
+      return;
+    }
+
+    if (deleteButton) {
+      const id = deleteButton.dataset.delete;
+
+      if (confirm('ایا دا اعلان پاکول غواړې؟')) {
+        const oldListings = listings;
+        const oldFavorites = favorites;
+
+        listings = listings.filter(function (item) {
+          return item.id !== id;
+        });
+
+        favorites = favorites.filter(function (value) {
+          return value !== id;
+        });
+
+        if (!saveStorage()) {
+          listings = oldListings;
+          favorites = oldFavorites;
+        }
+
+        renderListings();
+      }
+    }
+  });
+
+  // د خوښو اعلانونو فلټر
+  $('favoritesOnly').addEventListener('click', function () {
+    this.classList.toggle('active');
+
+    this.textContent = this.classList.contains('active')
+      ? '♥ یوازې خوښې اعلانونه'
+      : '♡ یوازې خوښې اعلانونه';
+
+    renderListings();
+  });
+
+  // د لټون او فلټرونو پېښې
+  $('search').addEventListener('input', renderListings);
+  $('filter').addEventListener('change', renderListings);
+  $('provinceFilter').addEventListener('change', renderListings);
+  $('sort').addEventListener('change', renderListings);
+
+  // ټول اعلانونه پاکول
+  $('clearBtn').addEventListener('click', function () {
+    if (confirm(
+      'ایا په دې براوزر کې ټول اعلانونه پاک کړې؟ دا کار بېرته نه راګرځي.'
+    )) {
+      const oldListings = listings;
+      const oldFavorites = favorites;
+
+      listings = [];
+      favorites = [];
+
+      if (!saveStorage()) {
+        listings = oldListings;
+        favorites = oldFavorites;
+      }
+
+      renderListings();
+    }
+  });
+
+  // د پاڼې د پرانیستلو پر وخت پخواني اعلانونه ښکاره کول
+  renderListings();
+
+})();
+</script>
+
+</body>
+  </html>
